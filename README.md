@@ -1,6 +1,32 @@
+![Kotlin Quick Guide](https://socialify.git.ci/Mr-Skully/kotlin-quick-guide/image?description=1&font=Raleway&owner=1&pattern=Floating%20Cogs&theme=Light)
 ![visitors](https://visitor-badge.glitch.me/badge?page_id=mr-skully.kotlin-quick-guide)  ![license](https://img.shields.io/github/license/Mr-Skully/kotlin-quick-guide)
 
-### Basic Facts
+| Table of Contents |
+| ----------------- |
+|  [Basic Facts](#basic-facts) |
+| [Values and Variables](#values-and-variables) |
+| [Data Types](#data-types) |
+| [Type Conversion](#type-conversion) |
+| [Type Inference](#type-inference) |
+| [Ranges](#ranges) |
+| [Regex](#regex) |
+| [BigInteger](#biginteger) |
+| [Null Safety](#null-safety) |
+| [Conventions](#conventions) |
+| [Standard Input/Output](#standard-inputoutput) |
+| [Functions and Lambda Expressions](#functions-and-lambda-expressions) |
+| [Standard Library](#standard-library) |
+| [Arrays](#arrays) |
+| [Control Flow Statements](#control-flow-statements) |
+| [Object Oriented Programming](#object-oriented-programming) |
+| [Collections](#collections) |
+| [Exceptions](#exceptions) |
+| [Working With Files](#working-with-files) |
+| [References](#references) |
+| [Learn Kotlin](#learn-kotlin) |
+  
+  
+## Basic Facts
 - Blocks of code are enclosed in curly braces, `{...}`
 
 - Each statement should start on a new line
@@ -23,7 +49,7 @@
 - `&&`, `||`, `!` and `xor` are the symbols representing the logical operators - *and*, *or*, *not* and *xor*.
 
 
-### Values and Variables
+## Values and Variables
 - `val` is used to declare **immutable** values.
 ```kotlin
 val name = "Kotlin"
@@ -76,7 +102,7 @@ println(two === anotherTwo) // false
 
 - Kotlin supports prefix and postfix increment/decrement operators (`++` and `--`) on variables.
 
-### Data Types
+## Data Types
 
 - The names of Kotlin datatypes start with a capital letter.
 
@@ -213,7 +239,7 @@ for (i in text) {
 }
 ```
 
-### Type Conversion
+## Type Conversion
 - Unlike some other programming languages, there are no implicit widening conversions for numbers in Kotlin. For example, an `Int` variable cannot be initialized with a `Short` or `Byte` variable. A function with a Double parameter can be called only on Double values, but not Float, Int, or other numeric values. The compiler will not perform any automatic type conversion in these cases.
 
 - There are methods built into the datatypes for explicit type conversion. It will not affect the type of the original variables.  
@@ -231,13 +257,13 @@ for (i in text) {
 
 - If the string is "true" or "false" (case insensitive), it can be converted to a Boolean using `toBoolean()`. Any value other than "true" will be a false Boolean.
 
-### Type Inference
+## Type Inference
 - In expressions involving variables of different datatypes, the widest type in the expression is inferred by the compiler as the type of the result.  
 `Double` > `Float` > `Long` > `Int` > (`Byte`, `Short`)  
 
 - The result of an expression involving `Byte` or `Short` variables is of the type `Int` (or an even larger type), unless explicitly casted.
 
-### Ranges
+## Ranges
 - Kotlin lets you create ranges of values using `rangeTo()` from the `kotlin.ranges` package, and its operator form `..`.
 
 - `a..b` is a range from `a` to `b` (inclusive), and `in` is a keyword used to check whether a value is within a range.
@@ -294,7 +320,7 @@ for (i in 1 until 10) {   // i in [1, 10), 10 is excluded
 }
 ```
 
-### Regex
+## Regex
 - A regex instance can be created using the `toRegex()` method of a `String` or by calling the `Regex` constructor:
 ```kotlin
 val string = "ing"
@@ -316,7 +342,7 @@ println(string2.matches(regex))   // false
 
 - To match `\`, the regexp is `\\\\`.
 
-### BigInteger
+## BigInteger
 - The Java Class Library provides a `BigInteger` class for processing very large numbers, limited only by the memory available. It is immutable.
 ```kotlin
 import java.math.BigInteger
@@ -343,7 +369,7 @@ val fifteen = BigInteger.valueOf(15)
 println(twelve.gcd(fifteen)) // 3
 ```
 
-### Null Safety
+## Null Safety
 - In Kotlin, the type system distinguishes between references that can hold `null` (nullable references) and those that can not (non-null references).
 
 - To allow nulls, we have to declare a variable as nullable by defining the type of the variable as `<type>?`.
@@ -404,7 +430,7 @@ val nullableList: List<Int?> = listOf(1, 2, null, 4)
 val intList: List<Int> = nullableList.filterNotNull()     // [1, 2, 4]
 ```
 
-### Conventions
+## Conventions
 - Four spaces are used for indentation. Do not use tabs.
 - Omit semicolons (`;`) wherever possible, as they are optional.
 - Put spaces around binary operators, for example, `a + b`.
@@ -420,7 +446,7 @@ if (elements != null) {
 ```
 - More conventions can be found in the [official documentation](https://kotlinlang.org/docs/reference/coding-conventions.html).
 
-### Standard Input/Output
+## Standard Input/Output
 - `print(message: Any?)` can be used to print the given message to the standard output stream.
 
 - `println(message: Any?)` prints the given message to the standard output stream along with a newline at the end.
@@ -440,7 +466,7 @@ val integer = scanner.nextInt()   // read a number
 val word = scanner.next()   // read a string
 ```
 
-### Functions and Lambda Expressions
+## Functions and Lambda Expressions
 - A function definition in Kotlin looks like:
 ```kotlin
 fun functionName(param1: Type1, param2: Type2, ...): ReturnType {
@@ -576,7 +602,7 @@ val double = placeArgument(2, mul)
 print(double(5))      // 10
 ```
 
-### Standard Library
+## Standard Library
 - The `Math` (inherited from Java) and `kotlin.math` libraries contains implementation of common mathematical functions and constants.
 ```kotlin
 val sqrt = Math.sqrt(2.0)   // 1.4142...
@@ -606,7 +632,7 @@ for (i in 0..4) {
 
 - A generator initialized using `Random.Default` will have a different seed each time it is used.
 
-### Arrays
+## Arrays
 - Kotlin supports the following native arrays for primitive types: `IntArray`, `LongArray`, `DoubleArray`, `FloatArray`, `CharArray`, `ShortArray`, `ByteArray` and `BooleanArray`. There is no `StringArray`.
 
 - To create an array of a specified type, pass the elements as parameters to functions like `intArrayOf()`, `charArrayOf()` and `booleanArrayOf()`. To initialize an array with a single value, use a lambda expression along with the type constructor.
@@ -655,7 +681,7 @@ val array = arrayOf(
 ```
 - The `contentDeepToString()` method can be used to get the entire content of a multidimensional array as a single `String`.
 
-### Control Flow Statements
+## Control Flow Statements
 
 - In Kotlin, `if` is also treated as an expression, and not just a statement. It can return the result of some computation, by specifying the result as the last expression in the body. If `if` is used as an expression, it must have an `else` branch.
 ```kotlin
@@ -748,7 +774,7 @@ fun foobar() {                                  // prints "12"
 }
 ```
 
-### Object Oriented Programming
+## Object Oriented Programming
 - A class is defined using the `class` keyword. If the body of the class is empty, the curly braces can be omitted.
 ```kotlin
 class ClassName {
@@ -1032,7 +1058,7 @@ class Toy(var type = "Ball", var color = "Blue") {
 
 - Destructuring also works with arrays. If there are less variables than the size of the array, it will skip the remaining elements of the array. If there are more variables, the expression will result in an error. If you don't need a variable in the destructuring declaration, you can place an underscore instead of its name.
 
-### Collections
+## Collections
 
 - The following properties and methods are supported by all the standard collections in Kotlin:
   - `size`
@@ -1108,7 +1134,7 @@ println(numbersMap.containsKey(3))      // false
 
 - A description of all the properties and methods supported by [lists](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/), [mutable lists](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html), [sets](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html), [mutable sets](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-set/index.html), [maps](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html) and [mutable maps](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-map/index.html) can be found in the official documentation.
 
-### Exceptions
+## Exceptions
 
 - You can throw exceptions using the `throw` keyword.
 ```kotlin
@@ -1156,7 +1182,7 @@ val number: Int = try { "abc".toInt() } catch (e: NumberFormatException) { 0 }
 println(number)     // 0
 ```
 
-### Working With Files
+## Working With Files
 - Files are handled using the `File` class from the `java.io` package. A `File` object contains a pointer to the specified file. When a method (except write methods) is called and the file does not exist, and a `NoSuchFileException` is thrown.
 
 - The `readText()` method returns the entire contents of the file as a `String`.
@@ -1189,11 +1215,11 @@ File(fileName).forEachLine { println(it) }
 
 - A list of all methods supported by the `File` class can be found in the [official documentation](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/java.io.-file/).
 
-### References
+## References
 [Basic Syntax](https://kotlinlang.org/docs/reference/basic-syntax.html) - Kotlin Official Documentation  
 [Kotlin Programming Language Reference](https://kotlinlang.org/docs/reference/) - Kotlin Official Documentation  
 NOTE: A lot of code samples have been taken directly from the official documentations.
 
-### Learn Kotlin
+## Learn Kotlin
 - [JetBrains Academy](https://hyperskill.org/) has a Kotlin track that helps you learn by working on a project in Kotlin. The course is current in a public beta phase, and available for free at the time of writing.
 - [Kotlin Koans](https://play.kotlinlang.org/koans/overview) is great way for Java developers to learn Kotlin, by working on a curated series of exercises in Kotlin.
