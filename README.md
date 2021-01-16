@@ -91,14 +91,14 @@ val green = blue   // object reference is copied
 val red = Box(3)
 
 println(blue == green)  // true
-println(blue === green) // true, as both point to the same object
+println(blue === green) // true, as both point (refer) to the same object
 println(blue == red)   // true
-println(blue === red)  // false, they point to different objects
+println(blue === red)  // false, they point (refer) to different objects
 
 var two = 2
 var anotherTwo = 2
 
-println(two === anotherTwo) // true, due to equality of immutable objects
+println(two === anotherTwo) // true, because the '===' equality check is equivalent to the '==' check for primitive types
 two = two + 1
 println(two === anotherTwo) // false
 ```
@@ -120,7 +120,7 @@ println(two === anotherTwo) // false
 `Double`: 64 bits (8 bytes), 15-16 significant decimal digits  
 `Char`: 16 bits (2 bytes), represents a 16-bit Unicode character  
 `Boolean`: size is machine-dependent  
-`Strings`: size depends on the string
+`String`: size depends on the string
 
 - Strings are enclosed in double quotes, `"..."`.
 
