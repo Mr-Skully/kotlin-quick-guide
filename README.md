@@ -1,4 +1,4 @@
-![visitors](https://visitor-badge.glitch.me/badge?page_id=page.id)  ![license](https://img.shields.io/github/license/Mr-Skully/kotlin-quick-guide)
+![visitors](https://visitor-badge.glitch.me/badge?page_id=mr-skully.kotlin-quick-guide)  ![license](https://img.shields.io/github/license/Mr-Skully/kotlin-quick-guide)
 
 ### Basic Facts
 - Blocks of code are enclosed in curly braces, `{...}`
