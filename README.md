@@ -1,9 +1,13 @@
 ![Kotlin Quick Guide](https://socialify.git.ci/Mr-Skully/kotlin-quick-guide/image?description=1&font=Raleway&owner=1&pattern=Floating%20Cogs&theme=Light)
 ![visitors](https://visitor-badge.glitch.me/badge?page_id=mr-skully.kotlin-quick-guide)  ![license](https://img.shields.io/github/license/Mr-Skully/kotlin-quick-guide)
 
+This is a quick start guide to Kotlin for people with prior coding experience (in any other language). I compiled what I learned from different sources like Kotlin Koans and JetBrains Academy, as a quick reference while working on coding challenges or Android applications. This guide is in no way a complete reference to Kotlin, but it probably will be sufficient for new users. I've assumed you already know programming in some other language, so I have skipped *explanations* for concepts like mutability and lambda expressions. However, if you are new to such terms, a simple web search will definitely help you undertand them.   
+
+A sample [Hello-World](https://github.com/Mr-Skully/kotlin-quick-guide/tree/main/src) program has been included in the `src` directory to give you an idea of how Kotlin files and packages look like.  
+
 | Table of Contents |
 | ----------------- |
-|  [Basic Facts](#basic-facts) |
+| [Basic Facts](#basic-facts) |
 | [Values and Variables](#values-and-variables) |
 | [Data Types](#data-types) |
 | [Type Conversion](#type-conversion) |
