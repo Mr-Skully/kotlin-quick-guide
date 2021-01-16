@@ -38,19 +38,17 @@ A sample [Hello-World](https://github.com/Mr-Skully/kotlin-quick-guide/tree/main
 - There are three types of comments in Kotlin:
 ```kotlin
 // This is a single line comment
-```
-```kotlin
+
 /* This is an example of
    a multiline comment. */
-```
-```kotlin
+
 /**
   * These are
   * documentation comments.
   */
 ```
 
-- `&&`, `||`, `!` and `xor` are the symbols representing the logical operators - *and*, *or*, *not* and *xor*.
+- `&&`, `||`, `!` and `xor` represent the logical operators - *and*, *or*, *not* and *xor*.
 
 
 ## Values and Variables
@@ -91,12 +89,15 @@ val msg2 = msg1
 val blue = Box(3)
 val green = blue   // object reference is copied
 val red = Box(3)
+
 println(blue == green)  // true
 println(blue === green) // true, as both point to the same object
 println(blue == red)   // true
 println(blue === red)  // false, they point to different objects
+
 var two = 2
 var anotherTwo = 2
+
 println(two === anotherTwo) // true, due to equality of immutable objects
 two = two + 1
 println(two === anotherTwo) // false
@@ -137,7 +138,8 @@ println(two === anotherTwo) // false
 
 - The type checker of the Kotlin compiler also enforces supertype-subtype relationships. For example, to a function  waiting for an argument of type `Number`, you can pass its subtype, `Int`:
 ```Kotlin
-fun calc(number: Number) {}
+fun calc(number: Number) { /*...*/ }
+
 val number: Int = 1
 calculate(number)
 ```
@@ -183,6 +185,7 @@ val ch += 2           // 'c'
 - `String` has a property `length` that stores the number of characters in the string. Individual elements can be accessed using their indices. It also has functions like `first()`, `last()` and `lastIndex()` to improve readability.
 ```kotlin
 val text = "Hello!"
+
 println(text.length)      // 6
 println(text.first())     // H
 println(text.last())      // !
@@ -203,6 +206,7 @@ val nickname = 8 + "ball"                   // Error, as a string can't be added
 - Kotlin supports string templates. Variables can be used directly in a `String` by prefixing the dollar sign (`$`) to the variable name. Similarly, expressions can be used in a `String` by enclosing them in curly braces after the dollar sign.
 ```kotlin
 val name = "John"
+
 println("My name is $name.")                      // My name is John.
 println("My name has ${name.length} letters.")    // My name has 4 letters.
 ```
@@ -232,12 +236,15 @@ val words2: Array<String> = text.split(" ").toTypedArray()      // { "AB", "CD" 
 - You can iterate through a `String` using a range of indices, array of indices, or using the characters of the `String`.
 ```kotlin
 val text = "Hello World"
+
 for (i in 0 until text.length) {
     print("${text[i]} ")              // H e l l o  W o r l d
 }
+
 for (index in text.indices) {
     print("${text[index]} ")          // H e l l o  W o r l d
 }
+
 for (i in text) {
     print("$i ")                      // H e l l o  W o r l d
 }
@@ -338,6 +345,7 @@ val regex2 = Regex("ing")
 val regex = Regex("ing")
 val string1 = "ing"
 val string2 = "running"
+
 println(string1.matches(regex))   // true
 println(string2.matches(regex))   // false
 ```
@@ -350,9 +358,11 @@ println(string2.matches(regex))   // false
 - The Java Class Library provides a `BigInteger` class for processing very large numbers, limited only by the memory available. It is immutable.
 ```kotlin
 import java.math.BigInteger
+
 val number1 = BigInteger("52955871795228763416553091")   // initialized using constructor
 val number2 = BigInteger.valueOf(1000000000)   // initialized from a Long value using the valueOf() method
 val number3 = 1234.toBigInteger()   // initialized from an Int vlaue using the toBigInteger() method
+
 // Some constants defined in the BigInteger class:
 val zero = BigInteger.ZERO // 0
 val one = BigInteger.ONE   // 1
@@ -368,6 +378,7 @@ val (result, remainder) = oneHundredTen.divideAndRemainder(nine) // 12 and 2
 ```kotlin
 val number = BigInteger("-1")
 println(number.abs()) // 1
+
 val twelve = BigInteger.valueOf(12)
 val fifteen = BigInteger.valueOf(15)
 println(twelve.gcd(fifteen)) // 3
@@ -414,6 +425,7 @@ var b: String? = "abc" // can be set null
   val l = a?.length ?: -1
   // Equivalent to:
   // val l: Int = if (a != null) a.length else -1
+  
   // Other examples:
   val parent = node.getParent() ?: return null
   val name = node.getName() ?: throw IllegalArgumentException("name expected")
@@ -464,6 +476,7 @@ val line2 = readLine()!!    // not null; commonly used
 - A Java Scanner object can be used to read input:
 ```kotlin
 import java.util.Scanner      // or import java.util.*
+
 val scanner = Scanner(System.`in`)
 val line = scanner.nextLine() // read a line
 val integer = scanner.nextInt()   // read a number
@@ -504,6 +517,7 @@ fun horizontalRule(symbol: Char = '-', count: Int = 10, end: Char = '\n') {
     }
     print(end)  
 }
+
 fun main() {
     horizontalRule()                // ----------
     horizontalRule('_', end = '?')  // __________?
@@ -525,6 +539,7 @@ fun sum(a: Int, b: Int = a) = a + b
 fun sum(a: Int, b: Int): Int = a + b
 // Type is:
 // (Int, Int) -> Int
+
 fun hello() = print("Hello World")
 // Type is:
 // () -> Unit
@@ -548,6 +563,7 @@ If the lambda doesn't have arguments, it's written in the form `{ body }`.
 - When the lambda is the last argument to a function, it can be placed outside the parenthesis. If the function has no other arguments other than the lambda, you can omit the parenthesis altogether. If there is only a single argument for the lambda, `it` can be used to refer to the parameter rather than assigning a name to it.
 ```kotlin
 val someText = "L-o-r-e-m I-p-s-u-m"
+
 print(   someText.filter({ ch -> ch != '-' })    )    // Lorem Ipsum
 print(   someText.filter() { ch -> ch != '-' }   )    // Lorem Ipsum
 print(   someText.filter { ch -> ch != '-' }     )    // Lorem Ipsum
@@ -576,6 +592,7 @@ fun foo() {
     }
     print(" done with explicit label")
 }
+
 fun bar() {
     listOf(1, 2, 3, 4, 5).forEach {
         if (it == 3) return@forEach       // local return to the caller of the lambda, the forEach loop
@@ -601,6 +618,7 @@ fun foo() {
 fun placeArgument(value: Int, f: (Int, Int) -> Int): (Int) -> Int {
     return { i -> f(value, i) }
 }
+
 val mul = { a: Int, b: Int -> a * b }
 val double = placeArgument(2, mul)
 print(double(5))      // 10
@@ -615,6 +633,7 @@ val sqrt = Math.sqrt(2.0)   // 1.4142...
 - Random numbers can be generated using the `Random` class in the kotlin.random package.
 ```kotlin
 import kotlin.random.Random
+
 fun main() {
     println( Random.nextInt() )       // generates a random Int number
     println( Random.nextLong() )      // generates a random Long number
@@ -643,6 +662,7 @@ for (i in 0..4) {
 ```kotlin
 val numbers1 = intArrayOf(1, 2, 3, 4, 5)      // Array<Int>: { 1, 2, 3, 4, 5 }
 println(numbers.joinToString())               // 1, 2, 3, 4, 5
+
 val numbers2 = IntArray(5)                    // { 0, 0, 0, 0, 0 }
 val numbers3 = IntArray(5) {1}                // { 1, 1, 1, 1, 1 }
 ```
@@ -661,6 +681,7 @@ println(numbers.size)       // 5
 ```kotlin
 val numbers1 = intArrayOf(1, 2, 3, 4)
 val numbers2 = intArrayOf(1, 2, 3, 4)
+
 println(numbers1.contentEquals(numbers2))     // true
 println(numbers1 == numbers2)                 // false
 ```
@@ -722,12 +743,14 @@ when (alphabet) {
 val a = 5
 val b = 6
 val c = 11    
+
 println(when (c) {
         a + b -> "$c equals $a plus $b"
         a - b -> "$c equals $a minus $b"
         a * b -> "$c equals $a times $b"
         else -> "We do not know how to calculate $c"
         })                                            // "11 equals 5 plus 6"
+        
 when (c) {
         in 0..10 -> println("c is between 0 and 10 (inclusive).")
         else -> println("c is not between 0 and 10.")
@@ -737,9 +760,11 @@ when (c) {
 - The `repeat` block simply executes its body over and over again for the specified number of times.
 ```kotlin
 import java.util.*
+
 val scanner = Scanner(System.`in`)
 val n = 10
 val sum = 0
+
 repeat(n) {
         val num = scanner.nextInt()
         sum += num
@@ -762,12 +787,14 @@ loop@ for (i in 1..100) {
         if (i == 10 && j == 10) break@loop      // breaks out from both loops
     }
 }
+
 fun foo() {                                     // prints "1245"
     listOf(1, 2, 3, 4, 5).forEach {
         if (it == 3) return@forEach // local return to the forEach loop
         print(it)
     }
 }
+
 fun foobar() {                                  // prints "12"
     run loop@{
         listOf(1, 2, 3, 4, 5).forEach {
@@ -784,6 +811,7 @@ fun foobar() {                                  // prints "12"
 class ClassName {
   // class properties and methods
 }
+
 val object = ClassName()
 ```
 
@@ -794,6 +822,7 @@ class Solid {
   var count = 10
   var shape = "sphere"
 }
+
 val object = Solid()
 println(object.shape)     // sphere
 ```
@@ -840,6 +869,7 @@ class Color(var color = "red") {
     print(this.color)     // you can omit the 'this' keyword if the property name is unique
   }
 }
+
 val obj = Color("green")
 obj.printColor()      // prints "green"
 ```
@@ -854,6 +884,7 @@ class Person {
           field = value
         }
 }
+
 val guy = Person()
 guy.name = "Ron"      // prints "Changed name from John to Ron"
 ```
@@ -861,6 +892,7 @@ guy.name = "Ron"      // prints "Changed name from John to Ron"
 - If a class is to be inherited (extended), it has to be declared with the `open` keyword. We can pass parameters to the constructor of the parent class, if required.
 ```kotlin
 open class Person(var name: String, var age: Int = 25)
+
 class Employee(name: String, dept: String) : Person(name) {
     var department = dept
 }
@@ -924,6 +956,7 @@ object President {
     println("$name was a former US President.")
   }
 }
+
 President.printMsg()
 ```
 
@@ -936,6 +969,7 @@ fun MutableList<Int>.swap(index1: Int, index2: Int) {
     this[index1] = this[index2]
     this[index2] = tmp
 }
+
 val list = mutableListOf(1, 2, 3)
 list.swap(0, 2) // [3, 2, 1]
 ```
@@ -945,7 +979,9 @@ list.swap(0, 2) // [3, 2, 1]
 class Example {
     fun printFunctionType() { println("Class method") }
 }
+
 fun Example.printFunctionType() = println("Extension function")
+
 Example().printFunctionType()     // Class method
 ```
 - Extensions can also be defined with a nullable receiver type.
@@ -964,18 +1000,21 @@ fun Any?.toString(): String {
     get() = size - 1
 ```
 
-- The `toString()` method of classes are invoked implicitly by when you try to print them. You can override the `toString()` method of a class to change the default behavior (which is a string of the form <class_name>@<pointer>). This modified function is inherited by the child classes, if any.
+- The `toString()` method of classes are invoked implicitly by when you try to print them. You can override the `toString()` method of a class to change the default behavior (which is a string of the form <class_name>@<pointer>). This modified function is inherited by the child classes, if any.   
+
 ```kotlin
 open class Toy(val type: String = "ball", val color: String = "blue") {
   override fun toString(): String {
     return "$color $type"
   }
 }
+
 class ToyOwner(val name: String, type: String = "ball", color: String = "blue") : Toy(type, color) {
   override fun toString(): String {
     return "${name}'s ${super.toString()}"
   }
 }
+
 val blueBall = ToyOwner("John")
 print(blueBall)   // John's blue ball
 ```
@@ -987,6 +1026,7 @@ class SampleClass {
         fun create(): SampleClass = SampleClass()
     }
 }
+
 val instance1 = SampleClass.create()
 val instance2 = SampleClass.Companion.create()
 // both function calls refer to the same function, and creates different instances of the class
@@ -1016,6 +1056,7 @@ enum class Rainbow(val color: String, val rgb: String) {
         println("Color: $color --- RGB: $rgb")
     }
 }
+
 val rgb = Rainbow.RED.rgb
 ```
 
@@ -1030,12 +1071,14 @@ fun isRainbowColor(color: String) : Boolean {
     }
     return false
 }
+
 println(isRainbowColor("Pink"))     // false
 ```
 
 - Data classes declared with the modifier `data` is used to store data in an organized manner. These classes automatically support methods like `equals()`, `hashCode()`, `toString()` and `copy()`. However, such built-in methods only consider the properties listed in the constructor, and ignores any properties found in the body of the class. All the methods except `copy()` can be overridden if required.
 ```kotlin
 data class Toy(var type = "Ball", var color = "Blue")
+
 val blueBall = Toy()
 val redBall = blueBall.copy(color = "Red")
 ```
@@ -1043,11 +1086,13 @@ val redBall = blueBall.copy(color = "Red")
 - Data classes can be unpacked, or *destructured*. A destructuring declaration uses a `componentN()` operator that returns the n-th element in the data class.
 ```kotlin
 data class Toy(var type = "Ball", var color = "Blue")
+
 val blueBall = Toy()
 val (toyType, toyColor) = blueBall
 // Same as:
 // val toyType = blueBall.component1()
 // val toyColor = blueBall.component2()
+
 println(toyType)      // Ball
 println(toyColor)     // Blue
 ```
@@ -1082,6 +1127,7 @@ class Toy(var type = "Ball", var color = "Blue") {
 ```kotlin
 val numbers = listOf("one", "two", "three", "four")
 val empty = emptyList<String>()     // to initialize an empty list
+
 println("Number of elements: ${numbers.size}")
 println("Third element: ${numbers.get(2)}")
 println("Fourth element: ${numbers[3]}")
@@ -1102,7 +1148,9 @@ println(numbers)
 ```kotlin
 val numbers = setOf(1, 2, 3, 4)
 println("Number of elements: ${numbers.size}")
+
 if (numbers.contains(1)) println("1 is in the set")
+
 val numbersBackwards = setOf(4, 3, 2, 1)
 println("${numbers == numbersBackwards}")
 ```
@@ -1149,6 +1197,7 @@ throw ArithmeticException
 ```kotlin
 val customException = Exception("A custom error message.")
 throw customException
+
 // Same as:
 // throw Exception("A custom error message.")
 ```
@@ -1192,6 +1241,7 @@ println(number)     // 0
 - The `readText()` method returns the entire contents of the file as a `String`.
 ```kotlin
 import java.io.File
+
 val file = File("file.txt")       // file is not opened, only a reference to the file is returned
 val content = file.readText()     // file is opened and closed automatically by the method
 print(content)                    // entire content of the text file is displayed
