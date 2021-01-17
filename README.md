@@ -172,10 +172,12 @@ val alphabet = '\u0041'     // represents 'A'
 
 - `Int` numbers can be added to characters, but the reverse is not true.
 ```kotlin
-val ch = 'a'
+var ch = 'a'
+
 val ch1 = ch + 1      // 'b'
 val ch2 = 1 + ch      // Error
-val ch += 2           // 'c'
+
+ch += 2               // 'c'
 ```
 
 - You can compare `Char` using relational operators according to their position in the Unicode table.
