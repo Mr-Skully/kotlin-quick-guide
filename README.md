@@ -52,10 +52,10 @@ A sample [Hello-World](https://github.com/Mr-Skully/kotlin-quick-guide/tree/main
 
 
 ## Values and Variables
-- `val` is used to declare **immutable** values.
+- `val` is used to declare **read-only** values.
 ```kotlin
 val name = "Kotlin"
-name = "Programming"   // won't work, as 'name' is immutable
+name = "Programming"   // won't work, as 'name' is read-only and cannot be reassigned
 ```
 
 - `var` is used to declare **mutable** variables. You can reassign the variables with values of the same type as the initial value.
@@ -82,7 +82,7 @@ val msg2 = msg1
 // msg1 and msg2 will both point to a single object in memory, the String "Hey".
 ```
 
-- If the object is **immutable**, you cannot change it, but you can use another object and assign this new object to the same variable. When you reassign the variable, it will point to a new object and other variables will still point to the old object. Standard types such as strings or numbers are immutable, so it's safe to copy them by reference. The behavior of mutable objects is different. If you modify an object from one variable, the other assigned variables continue to point to that object, so they will also reflect the same changes.
+- If the object is **immutable**, you cannot change it, but you can use another object and assign this new object to the same variable. When you reassign the variable, it will point to the new object and other variables will still point to the old object. Standard types such as strings or numbers are immutable, so it's safe to copy them by reference. The behavior of mutable objects is different. If you modify an object from one variable, the other assigned variables continue to point to that object, so they will also reflect the same changes.
 
 - The comparison operators `==` and `!=` checks for **structual equality**, while `===` and `!==` checks for **referential equality**.
 ```kotlin
