@@ -365,7 +365,7 @@ import java.math.BigInteger
 
 val number1 = BigInteger("52955871795228763416553091")   // initialized using constructor
 val number2 = BigInteger.valueOf(1000000000)   // initialized from a Long value using the valueOf() method
-val number3 = 1234.toBigInteger()   // initialized from an Int vlaue using the toBigInteger() method
+val number3 = 1234.toBigInteger()   // initialized from an Int value using the toBigInteger() method
 
 // Some constants defined in the BigInteger class:
 val zero = BigInteger.ZERO // 0
